@@ -61,7 +61,7 @@ def get_weather(region):
     wind_dir = response["now"]["windDir"]
 
     #天气API
-    weatherLife_url = "https://api.qweather.com/v7/indices/3d?type=3&location={}&key={}".format(location_id, key)
+    weatherLife_url = "https://devapi.qweather.com/v7/indices/1d?type=3&location={}&key={}".format(location_id, key)
     response = get(weatherLife_url, headers=headers).json()
     #穿衣建议
     category = response["daily[0]"]["category"]
