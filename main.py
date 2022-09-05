@@ -56,9 +56,18 @@ def get_weather(region):
     weather = response["now"]["text"]
     # 当前温度
     temp = response["now"]["temp"] + u"\N{DEGREE SIGN}" + "C"
+    feelsLike = response["now"]["feelsLike"] + u"\N{DEGREE SIGN}" + "C"
     # 风向
     wind_dir = response["now"]["windDir"]
-    return weather, temp, wind_dir
+
+    #天气API
+    weatherLife_url = "https://api.qweather.com/v7/indices/3d?type=3&location={}&key={}".format(location_id, key)
+    response = get(weatherLife_url, headers=headers).json()
+    #穿衣建议
+    category = response["daily"]["category"]
+    we_text = response["daily"]["text"]
+
+    return weather, temp, feelsLike, wind_dir, category, we_text
  
  
 def get_birthday(birthday, year, today):
@@ -223,7 +232,7 @@ if __name__ == "__main__":
     users = config["user"]
     # 传入地区获取天气信息
     region = config["region"]
-    weather, temp, wind_dir = get_weather(region)
+    weather, temp, feelsLike, wind_dir, category, we_text = get_weather(region)
     note_ch = config["note_ch"]
     note_en = config["note_en"]
     if note_ch == "" and note_en == "":

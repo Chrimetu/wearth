@@ -14,7 +14,9 @@ https://www.coolapk.com/feed/38579891?shareKey=NGI3ZGZlZTM4MDBjNjMwMzdlM2M~&shar
 
 模板内容如下：
 
-{{date.DATA}} 
+今天是：{{date.DATA}}
+
+今天也是非常爱你的一天呢~
 
 地区：{{region.DATA}} 
 
@@ -28,7 +30,6 @@ https://www.coolapk.com/feed/38579891?shareKey=NGI3ZGZlZTM4MDBjNjMwMzdlM2M~&shar
 
 {{birthday1.DATA}} 
 {{birthday2.DATA}}
-
 
 {{note_en.DATA}} 
 {{note_ch.DATA}}
